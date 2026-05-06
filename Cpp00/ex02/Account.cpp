@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -10,6 +11,7 @@ Account::Account(void) {
 	this->_amount = 0;
 	_nbAccounts ++;
 	_accountIndex = _nbAccounts - 1;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
@@ -18,18 +20,21 @@ Account::Account(int initial_deposit) {
 	_nbAccounts ++;
 	_accountIndex = _nbAccounts - 1;
 	_totalAmount += initial_deposit;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
 
 Account::~Account(void) {
 	_nbAccounts --;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
 
 
 void Account::makeDeposit(int deposit) {
 	_nbDeposits ++;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount
 		<< ";deposit:" << deposit << ";amount:" << this->_amount + deposit
 		<< ";nb_deposits:" << _nbDeposits << std::endl;
@@ -39,6 +44,7 @@ void Account::makeDeposit(int deposit) {
 }
 
 bool Account::makeWithdrawal(int withdrawal) {
+	_displayTimestamp();
 	if (this->_amount - withdrawal < 0)
 	{
 		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawals:refused" << std::endl;
@@ -60,6 +66,7 @@ int Account::checkAmount(void) const {
 }
 
 void Account::displayStatus(void) const {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:"
 		<< _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
@@ -67,12 +74,17 @@ void Account::displayStatus(void) const {
 //static
 
 void Account::displayAccountsInfos(void) {
+	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount
 		<< ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 void Account::_displayTimestamp(void) {
-
+	time_t	raw = time(0);
+	tm *timeinfo = localtime(&raw);
+	char buff[32];
+	strftime(buff, sizeof(buff), "[%Y%m%d_%H%M%S] ", timeinfo);
+	std::cout << buff;
 }
 
 int Account::getNbAccounts(void) {
