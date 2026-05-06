@@ -10,8 +10,8 @@ class PhoneBook {
 		Contact contacts[8];
 	public:
 		PhoneBook();
-		void addContact();
-		void search();
+		int addContact();
+		int search();
 };
 
 #endif

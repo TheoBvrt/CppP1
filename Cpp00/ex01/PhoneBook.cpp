@@ -4,7 +4,7 @@ PhoneBook::PhoneBook() {
 	this->currentIndex = 0;
 }
 
-void PhoneBook::addContact()
+int PhoneBook::addContact()
 {
 	std::string firstName;
 	std::string lastName;
@@ -36,16 +36,27 @@ void PhoneBook::addContact()
 		currentIndex = 0;
 	else
 		currentIndex ++;
+	return (1);
 }
 
-void PhoneBook::search()
+
+int PhoneBook::search()
 {
 	int index;
 	std::string line;
 
-	std::cout << "enter index of the contact";
+	std::cout << "enter index of the contact: ";
 	std::getline(std::cin, line);
-	index = std::atoi(line.c_str()) + 1;
 
-	std::cout << index << std::endl;
+	if (line.length() != 1 || !isdigit(line[0])) {
+		return (0);
+	}
+
+	index = std::atoi(line.c_str());
+
+	if (index > 7)
+		return (0);
+
+	contacts[index].displayContact();
+	return (1);
 }
