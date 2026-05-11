@@ -1,10 +1,10 @@
 NAME = a.out
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp
+SRCS = main.cpp ./srcs/HumanA.cpp ./srcs/HumanB.cpp ./srcs/Weapon.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 CC = c++
 RM = rm -f
-CFLAGS =-std=c++98 -Wall -Wextra -Werror
+CFLAGS = -Iheaders -std=c++98 -Wall -Wextra -Werror
 
 all : ${NAME}
 
