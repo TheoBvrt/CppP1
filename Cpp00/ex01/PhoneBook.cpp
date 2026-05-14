@@ -44,8 +44,8 @@ int PhoneBook::search()
 {
 	int index;
 	std::string line;
-
-	std::cout << "enter index of the contact: ";
+	
+	std::cout << "\033[2J\033[1;1H enter index of the contact: ";
 	std::getline(std::cin, line);
 
 	if (line.length() != 1 || !isdigit(line[0])) {

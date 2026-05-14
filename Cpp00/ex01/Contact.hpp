@@ -11,6 +11,7 @@ class Contact {
 		std::string nickName;
 		std::string phoneNumber;
 		std::string darkestSecret;
+		std::string getColumnValue(std::string str);
 	public:
 		void setContact(int index, std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
 		void displayContact();
