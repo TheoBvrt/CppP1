@@ -1,6 +1,7 @@
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 ////////////////
 
@@ -35,7 +36,7 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called\n";
-	this->fpn = value * 256;
+	this->fpn = roundf(value * (1 << fractional));
 }
 
 
@@ -58,7 +59,6 @@ int Fixed::toInt(void) const {
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called\n";
 	return (fpn);
 }
 
