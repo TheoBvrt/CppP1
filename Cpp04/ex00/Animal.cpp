@@ -17,10 +17,10 @@ Animal& Animal::operator=(const Animal& other) {
 	return *this;
 }
 
-void Animal::makeSound() {
+void Animal::makeSound() const {
 	std::cout << "Animal make sound" << std::endl;
 }
 
-std::string Animal::getType() {
+std::string Animal::getType() const {
 	return this->type;
 }
