@@ -57,6 +57,10 @@ int PhoneBook::search()
 	if (index > 7)
 		return (0);
 
+	if (contacts[index].getIndex() == -1) {
+		return (1);
+	}
+
 	contacts[index].displayContact();
 	return (1);
 }
