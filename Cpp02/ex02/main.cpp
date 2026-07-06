@@ -11,5 +11,23 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	// Fixed a(11);
+	// Fixed b(11);
+	// std::cout << (a > b) << std::endl;
+	// std::cout << (a < b) << std::endl;
+	// std::cout << (a != b) << std::endl;
+	// std::cout << (a >= b) << std::endl;
+	// std::cout << (a <= b) << std::endl;
+
+	// std::cout << (a + b) << std::endl;
+	// std::cout << (a - b) << std::endl;
+	// std::cout << (a * b) << std::endl;
+	// std::cout << (a / b) << std::endl;
+
+	// Fixed a;
+	// a.setRawBits(704);
+
+	// std::cout << a.toFloat() << std::endl;
 	return 0;
 }
