@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(std::string name) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap Default destructor called" << std::endl;
+std::cout << "ClapTrap Default destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {

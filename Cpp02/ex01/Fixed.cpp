@@ -10,16 +10,16 @@ Fixed::Fixed() : fpn(0) {
 }
 
 Fixed::Fixed(const Fixed &other) {
-	this->fpn = other.fpn;
 	std::cout << "Copy constructor called\n";
+	*this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
 	std::cout << "Copy assignment operator called\n";
 	if (this == &other)
-    	return *this;
+		return *this;
 	this->setRawBits(other.getRawBits());
-  	return *this;
+	return *this;
 }
 
 Fixed::~Fixed() {
