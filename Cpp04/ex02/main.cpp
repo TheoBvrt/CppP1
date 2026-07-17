@@ -6,6 +6,8 @@ int main()
 {
 	//Animal annimal; ne marche pas
 
+	// Animal animal;
+
 	Cat cat;
 	Dog dog;
 	Animal* dog2 = new Dog();

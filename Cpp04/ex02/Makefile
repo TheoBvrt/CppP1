@@ -1,5 +1,5 @@
 NAME = a.out
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = ${SRCS:.cpp=.o}
 CC = c++
 RM = rm -f
