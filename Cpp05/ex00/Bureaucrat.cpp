@@ -31,15 +31,15 @@ std::string Bureaucrat::getName() {
 }
 
 void Bureaucrat::incrementGrade() {
-	if (this->grade + 1 > 150)
+	if (this->grade - 1 < 1)
 		throw Bureaucrat::GradeErrorException();
-	this->grade ++;
+	this->grade --;
 }
 
 void Bureaucrat::decrementGrade() {
-	if (this->grade - 1 < 1)
+	if (this->grade + 1 > 150)
 		throw Bureaucrat::GradeErrorException();
-	this->grade--;
+	this->grade ++;
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat) {

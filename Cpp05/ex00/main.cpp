@@ -3,12 +3,12 @@
 int main() {
 	try
 	{
-		Bureaucrat Bureaucrat(1, "Mehdi");
+		Bureaucrat Bureaucrat(150, "Mehdi");
 		std::cout << Bureaucrat << std::endl;
 		try
 		{
-			Bureaucrat.incrementGrade();
-			//Bureaucrat.decrementGrade();
+			//Bureaucrat.incrementGrade();
+			Bureaucrat.decrementGrade();
 			std::cout << Bureaucrat << std::endl;
 		}
 		catch (std::exception & e)
