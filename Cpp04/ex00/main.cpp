@@ -24,6 +24,13 @@ int main()
 
 	// i->makeSound();
 	// meta->makeSound();
+
+	// const Animal* meta1 = new Animal();
+	// const Animal* i2 = new Cat();
+
+	// i2->makeSound();
+	// meta1->makeSound();
+
 ////////
 
 ///////////////////
