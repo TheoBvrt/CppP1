@@ -34,4 +34,6 @@ class Form {
 		const int requiredGrade;
 };
 
+std::ostream& operator<<(std::ostream& os, Form& form);
+
 #endif

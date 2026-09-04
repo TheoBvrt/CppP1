@@ -50,3 +50,10 @@ const char *Form::GradeTooHighException::what() const throw() {
 const char *Form::GradeTooLowException::what() const throw() {
 	return ("Grade is too Low!");
 }
+
+std::ostream& operator<<(std::ostream &os, Form& form) {
+	os << "Name : " << form.getName() <<  " Grade : " << form.getGrade()
+		<< " Required Grade : " << form.getRequiredGrade()
+		<< " IsSigned : " << form.getIsSigned() << '\n';
+	return (os);
+}
