@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 int main() {
-	Form form("Divorce", 140, 140);
+	Form form("Divorce", 150, 150);
 	Bureaucrat Bureaucrat(150, "Mehdi");
 
 	std::cout << form << std::endl;

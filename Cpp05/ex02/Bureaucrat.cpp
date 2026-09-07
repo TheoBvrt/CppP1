@@ -50,9 +50,9 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat) {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-  return ("Grade is too High!");
+	return ("Grade is too High!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-  return ("Grade is too Low!");
+	return ("Grade is too Low!");
 }

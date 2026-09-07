@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int grade, int requiredGrade) : name(name), grade(grade), requiredGrade(requiredGrade) {
+Form::Form(std::string name, int gradeForSign, int gradeForExecute) : name(name), gradeForSign(gradeForSign), gradeForExecute(gradeForExecute) {
 	this->isSigned = false;
 }
 
@@ -8,7 +8,7 @@ Form::~Form() {
 
 }
 
-Form::Form(const Form& other) : name(other.name), grade(other.grade), requiredGrade(other.requiredGrade) {
+Form::Form(const Form& other) : name(other.name), gradeForSign(other.gradeForSign), gradeForExecute(other.gradeForExecute) {
 	*this = other;
 }
 
@@ -24,12 +24,12 @@ std::string Form::getName()	{
 	return this->name;
 }
 
-int Form::getGrade() {
-	return this->grade;
+int Form::getGradeForSign() {
+	return this->gradeForSign;
 }
 
-int Form::getRequiredGrade() {
-	return this->requiredGrade;
+int Form::getGradeForExecute() {
+	return this->gradeForExecute;
 }
 
 bool Form::getIsSigned() {
@@ -37,7 +37,7 @@ bool Form::getIsSigned() {
 }
 
 void Form::beSigned(Bureaucrat& Bureaucrat) {
-	if (Bureaucrat.getGrade() > this->requiredGrade)
+	if (Bureaucrat.getGrade() > this->gradeForSign)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->isSigned = true;
@@ -52,8 +52,8 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream &os, Form& form) {
-	os << "Name : " << form.getName() <<  " Grade : " << form.getGrade()
-		<< " Required Grade : " << form.getRequiredGrade()
+	os << "Name : " << form.getName() <<  " Grade for sign : " << form.getGradeForSign()
+		<< " Grade for execute : " << form.getGradeForExecute()
 		<< " IsSigned : " << form.getIsSigned() << '\n';
 	return (os);
 }
