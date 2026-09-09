@@ -4,7 +4,7 @@
 # include <iostream>
 # include <stdexcept>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class Bureaucrat {
 	public:
@@ -25,6 +25,7 @@ class Bureaucrat {
 		class GradeTooLowException : public std::exception {
 			const char *what() const throw();
 		};
+
 	private:
 		int grade;
 		const std::string name;

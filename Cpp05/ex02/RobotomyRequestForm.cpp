@@ -20,6 +20,19 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return *this;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat& bureaucrat) {
+void RobotomyRequestForm::execute(const Bureaucrat& bureaucrat) const {
+
+	AForm::execute(bureaucrat);
+
+	std::cout << "*some drilling noises*" << std::endl;
+
+	if (std::rand() % 2 == 0)
+		throw RobotomyFailedException();
+
+	std::cout << "*[" << target << "] Robotomy has been successful!*" << std::endl;
 	
+}
+
+const char* RobotomyRequestForm::RobotomyFailedException::what() const throw() {
+	return ("Robotomy failed");
 }

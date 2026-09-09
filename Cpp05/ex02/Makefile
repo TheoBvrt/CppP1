@@ -1,6 +1,5 @@
 NAME = a.out
-SRCS = main.cpp Bureaucrat.cpp
-
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
 OBJS = ${SRCS:.cpp=.o}
 CC = c++
 RM = rm -f

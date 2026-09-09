@@ -2,6 +2,7 @@
 # define ROBOTOMOYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include "cstdlib"
 
 class RobotomyRequestForm : public AForm{
 	public:
@@ -9,7 +10,11 @@ class RobotomyRequestForm : public AForm{
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-		void execute(Bureaucrat& bureaucrat) override;
+		void execute(const Bureaucrat& bureaucrat) const;
+
+		class RobotomyFailedException : public std::exception {
+			const char *what() const throw();
+		};
 	private:
 		std::string target;
 };
