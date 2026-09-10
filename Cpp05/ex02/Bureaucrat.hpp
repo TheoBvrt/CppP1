@@ -6,6 +6,8 @@
 # include <exception>
 # include "AForm.hpp"
 
+class AForm;
+
 class Bureaucrat {
 	public:
 		virtual ~Bureaucrat() throw();
@@ -13,7 +15,7 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat& operator=(const Bureaucrat& other);
 
-		std::string getName();
+		std::string getName() const;
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
@@ -25,6 +27,8 @@ class Bureaucrat {
 		class GradeTooLowException : public std::exception {
 			const char *what() const throw();
 		};
+
+		void executeForm(AForm const & form) const;
 
 	private:
 		int grade;

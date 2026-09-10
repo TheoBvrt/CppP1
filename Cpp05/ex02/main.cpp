@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	Bureaucrat mehdi(1, "Mehdi");
+	Bureaucrat mehdi(150, "Mehdi");
 
 	ShrubberyCreationForm PresidentialPardonForm("Louis");
 
@@ -15,7 +15,7 @@ int main(void)
 	try
 	{
 		PresidentialPardonForm.beSigned(mehdi);
-		PresidentialPardonForm.execute(mehdi);
+		mehdi.executeForm(PresidentialPardonForm);
 	}
 	catch(const std::exception& e)
 	{

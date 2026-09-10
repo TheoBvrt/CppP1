@@ -28,7 +28,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 int Bureaucrat::getGrade() const {
 	return this->grade;}
 
-std::string Bureaucrat::getName() {
+std::string Bureaucrat::getName() const {
 	return this->name;
 }
 
@@ -42,6 +42,18 @@ void Bureaucrat::decrementGrade() {
 	if (this->grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->grade ++;
+}
+
+void Bureaucrat::executeForm(AForm const& form) const {
+	try
+	{
+		std::cout << this->name << " executed " << form.getName();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		std::cout << this->name << " couldn't execute " << form.getName() << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat) {
