@@ -70,6 +70,8 @@ void BitcoinExchange::convertPrice(std::string inputFile) {
 
 void BitcoinExchange::runConversion(std::string line) {
 	size_t sepPos = line.find('|');
+	if (sepPos == std::string::npos)
+		throw std::runtime_error("Error: bad input => " + line);
 
 	if (sepPos == std::string::npos)
 		return;
@@ -88,26 +90,22 @@ void BitcoinExchange::runConversion(std::string line) {
 	++it;
 	while (it != this->piceHistory.end()) {
 		std::tm tmp = stringToDate(it->first);
-
 		std::time_t closedDateTs = std::mktime(&closestDate);
 		std::time_t dateToSearchTs = std::mktime(&dateToSearch);
-	
 		std::time_t tmpDateTs = std::mktime(&tmp);
 
 
 		double diff1 = std::difftime(closedDateTs, dateToSearchTs);
 		double diff2 = std::difftime(tmpDateTs, dateToSearchTs);
 
-
-		if (std::abs(diff2) < std::abs(diff1)) {
+		if (diff2 <= 0 && diff2 > diff1) {
 			closestDate = tmp;
 			closestPrice = it->second;
 		}
 		++it;
 	}
-
-	std::cout << date << " => " << value << " = " << std::stod(value) * closestPrice << std::endl;
 	
+	std::cout << date << " => " << value << " = " << std::stod(value) * closestPrice << std::endl;
 }
 
 std::tm BitcoinExchange::stringToDate(std::string date) {
